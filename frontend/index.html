@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Kubernetes Monitoring Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="title">
+Kubernetes Monitoring Dashboard
+</h1>
+
+
+<div class="card">
+
+<h2>Cluster Metrics</h2>
+
+<button onclick="loadMetrics()" class="btn">
+Load Metrics
+</button>
+
+<div id="metrics"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Custom Prometheus Query</h2>
+
+<input
+id="queryInput"
+placeholder="Enter PromQL query..."
+/>
+
+<button onclick="runQuery()" class="btn">
+Run Query
+</button>
+
+<pre id="queryResult"></pre>
+
+</div>
+<div class="card">
+
+<h2>Cost Calculator</h2>
+
+<label>CPU Price ($ per core/hour)</label>
+<input id="cpuPrice" placeholder="0.031">
+
+<label>Memory Price ($ per GB/hour)</label>
+<input id="memPrice" placeholder="0.004">
+
+<button onclick="calculateCost()" class="btn">
+Calculate Cost
+</button>
+
+<div id="costResults"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

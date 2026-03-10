@@ -1,0 +1,156 @@
+body {
+
+background: linear-gradient(135deg,#0f172a,#020617);
+
+font-family: Arial, Helvetica, sans-serif;
+
+color:white;
+
+margin:0;
+padding:40px;
+
+}
+
+
+.container {
+
+max-width:1100px;
+margin:auto;
+
+}
+
+
+.title {
+
+text-align:center;
+font-size:32px;
+margin-bottom:40px;
+
+color:#38bdf8;
+
+}
+
+
+.card {
+
+background:#020617;
+
+border:1px solid #1e293b;
+
+padding:25px;
+
+margin-bottom:30px;
+
+border-radius:10px;
+
+box-shadow:0 0 20px rgba(56,189,248,0.2);
+
+}
+
+
+.card h2 {
+
+color:#60a5fa;
+margin-bottom:20px;
+
+}
+
+
+.btn {
+
+background:#2563eb;
+
+border:none;
+
+padding:10px 18px;
+
+color:white;
+
+cursor:pointer;
+
+border-radius:6px;
+
+margin-bottom:15px;
+
+transition:0.2s;
+
+}
+
+.btn:hover {
+
+background:#1d4ed8;
+
+}
+
+
+input {
+
+width:100%;
+
+padding:10px;
+
+margin-bottom:15px;
+
+border-radius:6px;
+
+border:1px solid #1e293b;
+
+background:#0f172a;
+
+color:white;
+
+}
+
+
+pre {
+
+background:#0f172a;
+
+padding:15px;
+
+overflow:auto;
+
+border-radius:6px;
+
+border:1px solid #1e293b;
+
+margin-top:15px;
+
+}
+
+
+.metricBlock {
+
+background:#020617;
+
+border:1px solid #1e293b;
+
+padding:15px;
+
+margin-top:15px;
+
+border-radius:6px;
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+
+}
+
+th,td{
+
+border:1px solid #1e293b;
+padding:8px;
+text-align:left;
+
+}
+
+th{
+
+background:#1e3a8a;
+
+}

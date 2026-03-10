@@ -14,45 +14,41 @@ A comprehensive Kubernetes monitoring and cost analysis dashboard that integrate
 
 ```
 kubonomics/
-├── backend/
-│   ├── main.py              # FastAPI backend server
-│   ├── api.py               # API endpoints
-│   ├── client.py            # Prometheus client
-│   ├── schemas.py           # Data schemas
-│   └── requirements.txt      # Python dependencies
+├── main.py                      # FastAPI backend server
+├── api.py                       # API endpoints
+├── client.py                    # Prometheus client
+├── schemas.py                   # Data schemas
+├── requirements.txt             # Python dependencies
+├── prometheus-service.yaml      # Prometheus service manifest
+├── grafana-service.yaml         # Grafana service manifest
 ├── frontend/
-│   ├── index.html           # Dashboard UI
-│   ├── script.js            # Frontend logic
-│   └── style.css            # Styling
-├── k8s/
-│   ├── backend-deployment.yaml
-│   ├── backend-service.yaml
-│   ├── prometheus-service.yaml
-│   └── grafana-service.yaml
-├── docker-compose.yml       # Local development setup
+│   ├── index.html               # Dashboard UI
+│   ├── script.js                # Frontend logic & interactions
+│   └── style.css                # Dashboard styling
+├── venv/                        # Python virtual environment
 └── README.md
 ```
 
 ## Prerequisites
 
 - Python 3.8+
-- Node.js (for frontend development)
-- Docker & Docker Compose (optional, for containerized setup)
 - Kubernetes cluster with Prometheus installed
+- kubectl configured to access your cluster
 
 ## Installation
 
 ### Backend Setup
 
-1. Navigate to the backend directory:
+1. Clone the repository:
 ```bash
+git clone <repository-url>
 cd kubonomics
 ```
 
 2. Create a virtual environment:
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/Scripts/activate  # On Windows: venv\Scripts\activate
 ```
 
 3. Install dependencies:
@@ -62,7 +58,7 @@ pip install -r requirements.txt
 
 4. Run the backend server:
 ```bash
-uvicorn main:app --reload
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 The API will be available at `http://localhost:8000`
@@ -88,7 +84,7 @@ http://localhost:5500
 
 ### Environment Variables
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the root directory (optional):
 
 ```
 PROMETHEUS_URL=http://localhost:9090
@@ -98,10 +94,11 @@ API_PORT=8000
 
 ### Kubernetes Deployment
 
-Use the provided Kubernetes manifests to deploy:
+Apply the provided Kubernetes service manifests:
 
 ```bash
-kubectl apply -f k8s/
+kubectl apply -f prometheus-service.yaml
+kubectl apply -f grafana-service.yaml
 ```
 
 ## Usage
@@ -146,25 +143,19 @@ Execute custom PromQL queries
 }
 ```
 
-## Docker Deployment
-
-```bash
-docker-compose up
-```
-
-This will start:
-- Prometheus (port 9090)
-- Grafana (port 3000)
-- Backend API (port 8000)
-- Frontend (port 5500)
-
 ## Technologies Used
 
 - **Backend**: Python, FastAPI
 - **Frontend**: HTML, CSS, JavaScript
 - **Monitoring**: Prometheus, Grafana
-- **Container**: Docker, Kubernetes
-- **Infrastructure**: Kubernetes, Prometheus ServiceMonitor
+- **Infrastructure**: Kubernetes
+- **API Client**: Python Kubernetes client
+
+## Getting Help
+
+1. Check the frontend dashboard at `http://localhost:5500`
+2. Access the API documentation at `http://localhost:8000/docs`
+3. Review Prometheus metrics at `http://localhost:9090`
 
 ## License
 

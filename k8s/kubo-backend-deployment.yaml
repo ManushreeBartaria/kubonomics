@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubo-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubo-backend
+  template:
+    metadata:
+      labels:
+        app: kubo-backend
+    spec:
+      containers:
+      - name: kubo-backend
+        image: kubo-backend:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+        

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from schemas import CustomQueryRequest, AllQueriesResponse, QueryResult
-from client import query_prometheus
+from .schemas import CustomQueryRequest, AllQueriesResponse, QueryResult
+from .client import query_prometheus
 
 router = APIRouter()
 

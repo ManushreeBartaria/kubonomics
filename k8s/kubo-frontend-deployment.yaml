@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubo-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubo-frontend
+  template:
+    metadata:
+      labels:
+        app: kubo-frontend
+    spec:
+      containers:
+      - name: kubo-frontend
+        image: kubo-frontend:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5500
+        env:
+        - name: VITE_BACKEND_URL
+          value: "http://192.168.59.100:30011"

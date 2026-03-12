@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubo-backend
+spec:
+  type: NodePort
+  selector:
+    app: kubo-backend
+  ports:
+    - port: 8000
+      targetPort: 8000
+      nodePort: 300011

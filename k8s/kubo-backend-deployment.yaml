@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: kubo-backend
-        image: kubo-backend:v1
+        image: kubo-backend:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 8000

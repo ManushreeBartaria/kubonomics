@@ -17,7 +17,7 @@ spec:
         image: kubo-frontend:latest
         imagePullPolicy: Never
         ports:
-        - containerPort: 5500
+        - containerPort: 5173
         env:
         - name: VITE_BACKEND_URL
           value: "http://192.168.59.100:30011"

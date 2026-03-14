@@ -1,4 +1,6 @@
-const API_URL = import.meta.env.VITE_BACKEND_URL || "http://192.168.59.100:30011"
+// Kubernetes Monitoring Dashboard - Client Side Application
+
+const API_URL = document.currentScript?.dataset.apiUrl || "http://192.168.59.100:30011"
 
 let latestMetrics = null
 
@@ -148,6 +150,7 @@ memUsage=parseFloat(memEntry.value[1])/(1024*1024*1024)
 
 const cpuCost=cpuUsage*cpuPrice
 const memCost=memUsage*memPrice
+
 const total=cpuCost+memCost
 
 table+=`
